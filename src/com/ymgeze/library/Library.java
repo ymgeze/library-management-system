@@ -16,9 +16,10 @@ public class Library {
 
     public void listBooks() {
 
-        if (books.size() == 0) {
-            System.out.println("No books added.");
+        if (books.isEmpty()) {
+            System.out.println("The library is empty.");
         } else {
+
             for (int i = 0; i < books.size(); i++) {
 
                 System.out.println("ID: " + books.get(i).getId());
@@ -36,21 +37,18 @@ public class Library {
                 System.out.println("----------------------------------------");
             }
         }
-    
     }
 
     public Book searchBookById(int id) {
-        
-        for(int i = 0; i < books.size(); i++){
-            
-            if(books.get(i).getId()==id){
-                
+
+        for (int i = 0; i < books.size(); i++) {
+
+            if (books.get(i).getId() == id) {
+
                 return books.get(i);
             }
-            
         }
-        
+
         return null;
     }
-    
 }
