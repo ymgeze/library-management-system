@@ -36,6 +36,21 @@ public class Library {
                 System.out.println("----------------------------------------");
             }
         }
-
+    
     }
+
+    public Book searchBookById(int id) {
+        
+        for(int i = 0; i < books.size(); i++){
+            
+            if(books.get(i).getId()==id){
+                
+                return books.get(i);
+            }
+            
+        }
+        
+        return null;
+    }
+    
 }
