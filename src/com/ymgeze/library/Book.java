@@ -1,23 +1,21 @@
 package com.ymgeze.library;
 
 public class Book {
-    
+
     private int id;
     private String title;
     private String author;
     private int publicationYear;
     private String category;
     private boolean borrowed;
-    
-    public Book(int id, String title, String author, int publicationYear, String category){
-        
+
+    public Book(int id, String title, String author, int publicationYear, String category) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
         this.category = category;
         this.borrowed = false;
-        
     }
 
     public int getId() {
@@ -43,5 +41,5 @@ public class Book {
     public boolean isBorrowed() {
         return borrowed;
     }
-        
+
 }
