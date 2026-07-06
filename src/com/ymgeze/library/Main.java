@@ -45,15 +45,89 @@ public class Main {
                     break;
 
                 case 2:
-                    
+
                     library.listBooks();
-                    
+
                     break;
 
                 case 3:
-                    //Add block
-                    
-                    
+
+                    boolean searchMenu = true;
+
+                    while (searchMenu) {
+
+                        System.out.println("Search Menu");
+                        System.out.println("1 - Search by ID");
+                        System.out.println("2 - Search by Title");
+                        System.out.println("0 - Back");
+                        System.out.print("Choice: ");
+
+                        int searchMenuChoice = input.nextInt();
+
+                        switch (searchMenuChoice) {
+
+                            case 1:
+
+                                System.out.print("Book ID: ");
+
+                                int searchId = input.nextInt();
+                                Book foundBookById = library.searchBookById(searchId);
+
+                                if (foundBookById != null) {
+
+                                    System.out.println("Book found!");
+                                    System.out.println("ID: " + foundBookById.getId());
+                                    System.out.println("Title: " + foundBookById.getTitle());
+                                    System.out.println("Author: " + foundBookById.getAuthor());
+                                    System.out.println("Publication Year: " + foundBookById.getPublicationYear());
+                                    System.out.println("Category: " + foundBookById.getCategory());
+
+                                    if (foundBookById.isBorrowed()) {
+                                        System.out.println("Borrowed: Yes");
+                                    } else {
+                                        System.out.println("Borrowed: No");
+                                    }
+                                } else {
+                                    System.out.println("Book not found.");
+                                }
+
+                                break;
+
+                            case 2:
+
+                                System.out.print("Book Title: ");
+                                
+                                input.nextLine();
+                                String searchTitle = input.nextLine();
+                                Book foundBookByTitle = library.searchBookByTitle(searchTitle);
+
+                                if (foundBookByTitle != null) {
+
+                                    System.out.println("Book found!");
+                                    System.out.println("ID: " + foundBookByTitle.getId());
+                                    System.out.println("Title: " + foundBookByTitle.getTitle());
+                                    System.out.println("Author: " + foundBookByTitle.getAuthor());
+                                    System.out.println("Publication Year: " + foundBookByTitle.getPublicationYear());
+                                    System.out.println("Category: " + foundBookByTitle.getCategory());
+
+                                    if (foundBookByTitle.isBorrowed()) {
+                                        System.out.println("Borrowed: Yes");
+                                    } else {
+                                        System.out.println("Borrowed: No");
+                                    }
+                                } else {
+                                    System.out.println("Book not found.");
+                                }
+                                
+                                break;
+
+                            case 0:
+
+                                searchMenu = false;
+                                break;
+                        }
+                    }
+
                     break;
 
                 case 4:
@@ -61,10 +135,12 @@ public class Main {
                     break;
 
                 case 0:
+
                     System.out.println("Exiting...");
                     return;
 
                 default:
+
                     System.out.println("Invalid choice. Please try again.");
             }
         }

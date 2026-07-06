@@ -44,7 +44,18 @@ public class Library {
         for (int i = 0; i < books.size(); i++) {
 
             if (books.get(i).getId() == id) {
+                return books.get(i);
+            }
+        }
 
+        return null;
+    }
+
+    public Book searchBookByTitle(String title) {
+
+        for (int i = 0; i < books.size(); i++) {
+
+            if (books.get(i).getTitle().equals(title)) {
                 return books.get(i);
             }
         }
