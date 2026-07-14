@@ -27,16 +27,22 @@ public class Main {
             switch (choice) {
 
                 case 1:
-
+                    
+                    System.out.print("ID: ");
                     int id = input.nextInt();
                     input.nextLine();
-
+                    
+                    System.out.print("Title: ");
                     String title = input.nextLine();
+                    
+                    System.out.print("Author: ");
                     String author = input.nextLine();
-
+                    
+                    System.out.print("Publication Year: ");
                     int year = input.nextInt();
                     input.nextLine();
-
+                    
+                    System.out.print("Category: ");
                     String category = input.nextLine();
 
                     Book book = new Book(id, title, author, year, category);
