@@ -175,7 +175,32 @@ public class Main {
                     break;
 
                 case 4:
-                    //Add block
+                    
+                    System.out.print("ID: ");
+                    int borrowId = input.nextInt();
+                    input.nextLine();
+                    
+                    Book borrowBook = library.searchBookById(borrowId);
+                    
+                    if(borrowBook != null){
+                        
+                        if(borrowBook.isBorrowed()){
+                            
+                            System.out.println("Book is already borrowed.");
+                            
+                        }
+                        else{
+                            borrowBook.setBorrowed(true);
+                            System.out.println("Book borrowed.");
+                        }
+                        
+                    }
+                    else{
+                        
+                        System.out.println("Book not found.");
+                        
+                    }
+                    
                     break;
 
                 case 0:
