@@ -1,5 +1,6 @@
 package com.ymgeze.library;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -59,6 +60,7 @@ public class Main {
                         System.out.println("Search Menu");
                         System.out.println("1 - Search by ID");
                         System.out.println("2 - Search by Title");
+                        System.out.println("3 - Search by Author");
                         System.out.println("0 - Back");
                         System.out.print("Choice: ");
 
@@ -75,7 +77,7 @@ public class Main {
 
                                 if (foundBookById != null) {
 
-                                    System.out.println("Book found!");
+                                    System.out.println("Book found.");
                                     System.out.println("ID: " + foundBookById.getId());
                                     System.out.println("Title: " + foundBookById.getTitle());
                                     System.out.println("Author: " + foundBookById.getAuthor());
@@ -87,6 +89,7 @@ public class Main {
                                     } else {
                                         System.out.println("Borrowed: No");
                                     }
+
                                 } else {
                                     System.out.println("Book not found.");
                                 }
@@ -96,14 +99,14 @@ public class Main {
                             case 2:
 
                                 System.out.print("Book Title: ");
-                                
+
                                 input.nextLine();
                                 String searchTitle = input.nextLine();
                                 Book foundBookByTitle = library.searchBookByTitle(searchTitle);
 
                                 if (foundBookByTitle != null) {
 
-                                    System.out.println("Book found!");
+                                    System.out.println("Book found.");
                                     System.out.println("ID: " + foundBookByTitle.getId());
                                     System.out.println("Title: " + foundBookByTitle.getTitle());
                                     System.out.println("Author: " + foundBookByTitle.getAuthor());
@@ -115,10 +118,45 @@ public class Main {
                                     } else {
                                         System.out.println("Borrowed: No");
                                     }
+
                                 } else {
                                     System.out.println("Book not found.");
                                 }
-                                
+
+                                break;
+
+                            case 3:
+
+                                System.out.print("Book Author: ");
+
+                                input.nextLine();
+                                String searchAuthor = input.nextLine();
+
+                                ArrayList<Book> foundBooksByAuthor = library.searchBooksByAuthor(searchAuthor);
+
+                                if (foundBooksByAuthor.size() != 0) {
+
+                                    System.out.println("Books found.");
+
+                                    for (int i = 0; i < foundBooksByAuthor.size(); i++) {
+
+                                        System.out.println("ID: " + foundBooksByAuthor.get(i).getId());
+                                        System.out.println("Title: " + foundBooksByAuthor.get(i).getTitle());
+                                        System.out.println("Author: " + foundBooksByAuthor.get(i).getAuthor());
+                                        System.out.println("Publication Year: " + foundBooksByAuthor.get(i).getPublicationYear());
+                                        System.out.println("Category: " + foundBooksByAuthor.get(i).getCategory());
+
+                                        if (foundBooksByAuthor.get(i).isBorrowed()) {
+                                            System.out.println("Borrowed: Yes");
+                                        } else {
+                                            System.out.println("Borrowed: No");
+                                        }
+                                    }
+
+                                } else {
+                                    System.out.println("Books not found.");
+                                }
+
                                 break;
 
                             case 0:

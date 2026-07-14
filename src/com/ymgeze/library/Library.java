@@ -62,4 +62,18 @@ public class Library {
 
         return null;
     }
+
+    public ArrayList<Book> searchBooksByAuthor(String author) {
+
+        ArrayList<Book> foundBooksByAuthor = new ArrayList<>();
+
+        for (int i = 0; i < books.size(); i++) {
+
+            if (books.get(i).getAuthor().equals(author)) {
+                foundBooksByAuthor.add(books.get(i));
+            }
+        }
+
+        return foundBooksByAuthor;
+    }
 }
